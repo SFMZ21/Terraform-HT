@@ -7,7 +7,7 @@ resource "aws_route_table" "route"{
     }
 
     tags ={
-        using_case= "acceso a internet"
+        using_case= "internet gateway"
         Name= "${Local.prefix}-route-table-public"
         Enviroment= Local.env
         Path = "${basename(abspath(path.module))}/route-table-ig.tf"
