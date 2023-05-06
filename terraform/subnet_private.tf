@@ -1,13 +1,13 @@
-resource "aws_subnet" "public-private"{
+resource "aws_subnet" "private-subnet"{
     
     vpc_id = aws_vpc.this.id
-    cidr_block= Local.vpc.cidr_subnet_private
-    map_public_ip_on_Launch = false 
-    availability_zone = "us-east-1b"
+    cidr_block= local.vpc.cidr_subnet_private
+    map_public_ip_on_launch = false 
+    availability_zone = "us-east-1a"
 
     tags = {
-        Name="${Local.prefix}-private-subnet"
-        Enviroment= Local.env
+        Name="${local.prefix}-private-subnet"
+        Enviroment= local.env
         Path = "${basename(abspath(path.module))}/subnet-private.tf"
     }
 

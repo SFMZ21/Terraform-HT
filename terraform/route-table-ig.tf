@@ -8,13 +8,13 @@ resource "aws_route_table" "route"{
 
     tags ={
         using_case= "internet gateway"
-        Name= "${Local.prefix}-route-table-public"
-        Enviroment= Local.env
+        Name= "${local.prefix}-route-table-public"
+        Enviroment= local.env
         Path = "${basename(abspath(path.module))}/route-table-ig.tf"
     }
 }
 
 resource "aws_route_table_association" "rt"{
     subnet_id = "${aws_subnet.public-subnet.id}"
-    rout_table_id = "${aws_route_table.route.id}"
+    route_table_id = "${aws_route_table.route.id}"
 }

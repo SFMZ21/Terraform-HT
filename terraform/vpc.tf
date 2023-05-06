@@ -1,10 +1,10 @@
 resource "aws_vpc" "this"{
-    cidr_block =Local.vpc.cidr
+    cidr_block =local.vpc.cidr
     instance_tenancy="default"
 
     tags={
-        Name="${Local.prefix}-vpc"
-        Enviroment= Local.env
-        Path = "${basename(abspath(path.module))/vpc.tf}"
+        Name="${local.prefix}-vpc"
+        Enviroment= local.env
+        Path = "${basename(abspath(path.module))}/vpc.tf"
     }
 }
